@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import "./index.scss";
 
 // Main Component (will eventually use all the others)
-const MyFLixApplication = () => {
+const MyFlixApplication = () => {
   return (
     <div className="my-flix">
       <div>Good Morning</div>
