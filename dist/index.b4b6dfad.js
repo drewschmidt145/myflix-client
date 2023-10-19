@@ -2968,7 +2968,7 @@ _c = MyFLixApplication;
 const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
 // tells React to redner your app i the root DOM element
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("myFlixApplication", {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
     lineNumber: 20,
     columnNumber: 13
