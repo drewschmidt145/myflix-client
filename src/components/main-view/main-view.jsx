@@ -38,7 +38,7 @@ export const MainView = () => {
     );
   }
 
-  if (Movies.length === 0) {
+  if (movies.length === 0) {
     return <div>The list is empty!</div>;
   }
 
