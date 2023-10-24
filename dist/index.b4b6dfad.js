@@ -27177,7 +27177,7 @@ var _mainViewJsx = require("./main-view.jsx");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([
+    const [movie, setMovies] = (0, _react.useState)([
         {
             id: 1,
             title: "Pulp Fiction",
@@ -27212,7 +27212,7 @@ const MainView = ()=>{
         lineNumber: 37,
         columnNumber: 7
     }, undefined);
-    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    if (movie.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
@@ -27220,7 +27220,7 @@ const MainView = ()=>{
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardJsx.MovieCard), {
+        children: movie.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardJsx.MovieCard), {
                 Movie: movie,
                 onMovieClick: (newSelectedMovie)=>{
                     setSelectedMovie(newSelectedMovie);
@@ -27236,7 +27236,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "OGSA/5w6xo22A7eblTTD+9b9Mus=");
+_s(MainView, "hulHqH7ydreInMQwpV2QGccfSKA=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
