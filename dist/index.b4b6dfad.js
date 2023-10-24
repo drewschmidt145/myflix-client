@@ -27180,27 +27180,27 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([
         {
             id: 1,
-            Title: "Pulp Fiction",
-            Description: "Vincent Vega and Jules Winnfield are hitmen with a penchant for philosophical discussion. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace and his actress wife, Mia.",
-            Image: "https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg",
-            Director: "Quentin Tarantino",
-            Genre: "Crime"
+            title: "Pulp Fiction",
+            description: "Vincent Vega and Jules Winnfield are hitmen with a penchant for philosophical discussion. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace and his actress wife, Mia.",
+            image: "https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg",
+            director: "Quentin Tarantino",
+            genre: "Crime"
         },
         {
             id: 2,
-            Title: "Interstellar",
-            Description: "In Earths future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand, a brilliant NASA physicist, is working on plans to save mankind by transporting Earths population to a new home via a wormhole..",
-            Image: "https://en.wikipedia.org/wiki/Interstellar_(film)#/media/File:Interstellar_film_poster.jpg",
-            Director: "Christopher Nolan",
-            Genre: "Adventure"
+            title: "Interstellar",
+            description: "In Earths future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand, a brilliant NASA physicist, is working on plans to save mankind by transporting Earths population to a new home via a wormhole..",
+            image: "https://en.wikipedia.org/wiki/Interstellar_(film)#/media/File:Interstellar_film_poster.jpg",
+            director: "Christopher Nolan",
+            genre: "Adventure"
         },
         {
             id: 3,
-            Title: "Goodfellas",
-            Description: "A young man grows up in the mob and works very hard to advance through the ranks. He enjoys his life of money and luxury, but is oblivious to the horror that he causes.",
-            Image: "https://en.wikipedia.org/wiki/Goodfellas#/media/File:Goodfellas.jpg",
-            Director: "Martin Scorsese",
-            Genre: "Crime"
+            title: "Goodfellas",
+            description: "A young man grows up in the mob and works very hard to advance through the ranks. He enjoys his life of money and luxury, but is oblivious to the horror that he causes.",
+            image: "https://en.wikipedia.org/wiki/Goodfellas#/media/File:Goodfellas.jpg",
+            director: "Martin Scorsese",
+            genre: "Crime"
         }
     ]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
@@ -27236,7 +27236,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "yauLDezTjwHUe4t96w4h5VvUkiQ=");
+_s(MainView, "OGSA/5w6xo22A7eblTTD+9b9Mus=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
