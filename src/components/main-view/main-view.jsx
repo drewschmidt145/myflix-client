@@ -5,6 +5,22 @@ import { MovieView } from "../movie-view/movie-view";
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
+  useEffect(() => {
+    fetch("")
+    .then((response) => response.json())
+    .then((data) => {
+      const booksFromApi = data.docs.maps((doc) => {
+        return {
+          id: doc.key,
+          title: doc.title,
+          image: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
+          author: doc.author_name?.[0]
+        };
+      });
+      setBooks(booksFromApi);
+    });
+  }, []);
+
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
