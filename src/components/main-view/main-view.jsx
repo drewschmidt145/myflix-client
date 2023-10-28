@@ -6,7 +6,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("")
+    fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/movies")
     .then((response) => response.json())
     .then((data) => {
       const booksFromApi = data.docs.maps((doc) => {
