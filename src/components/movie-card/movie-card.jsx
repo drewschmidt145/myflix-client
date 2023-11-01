@@ -20,5 +20,5 @@ MovieCard.propTypes = {
     genre: PropTypes.shape({
     })
   }).isRequired,
-  onBookClick: PropTypes.func.isRequired
+  onMovieClick: PropTypes.func.isRequired
 };
