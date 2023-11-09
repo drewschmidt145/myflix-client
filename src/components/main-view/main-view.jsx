@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
@@ -26,18 +26,18 @@ export const MainView = () => {
       const moviesFromApi = data.map((movie) => {
         return {
           id: movie._id,
-          title: movie.Title,
-          image: movie.ImagePath,
-          description: movie.Description,
+          title: movie.title,
+          image: movie.imagePath,
+          description: movie.description,
 
-          Genre: {
-            Name: movie.Genre.Name
+          genre: {
+            Name: movie.genre.Name
           },
-          Director: {
-            Name: movie.Director.Name
+          director: {
+            Name: movie.director.Name
           },
 
-          Featured: movie.Featured
+          featured: movie.featured
         };
       });
       setMovies(moviesFromApi);
@@ -72,12 +72,12 @@ export const MainView = () => {
 
   return (
     <div>
-      <button>
+      <button
         onClick={() => {
           setUser=(null);
           setToken=(null);
           localStorage.clear();
-        }}
+        }}>
         Logout
       </button>
       {movies.map((movie) => (

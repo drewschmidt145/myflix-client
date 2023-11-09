@@ -27185,7 +27185,7 @@ const MainView = ()=>{
     const storedToken = localStorage.getItem("token");
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
-    useEffect(()=>{
+    (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/movies", {
             headers: {
@@ -27196,16 +27196,16 @@ const MainView = ()=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
                     id: movie._id,
-                    title: movie.Title,
-                    image: movie.ImagePath,
-                    description: movie.Description,
-                    Genre: {
-                        Name: movie.Genre.Name
+                    title: movie.title,
+                    image: movie.imagePath,
+                    description: movie.description,
+                    genre: {
+                        Name: movie.genre.Name
                     },
-                    Director: {
-                        Name: movie.Director.Name
+                    director: {
+                        Name: movie.director.Name
                     },
-                    Featured: movie.Featured
+                    featured: movie.featured
                 };
             });
             setMovies(moviesFromApi);
@@ -27252,16 +27252,13 @@ const MainView = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                children: [
-                    "onClick=",
-                    ()=>{
-                        setUser = null;
-                        setToken = null;
-                        localStorage.clear();
-                    },
-                    "Logout"
-                ]
-            }, void 0, true, {
+                onClick: ()=>{
+                    setUser = null;
+                    setToken = null;
+                    localStorage.clear();
+                },
+                children: "Logout"
+            }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 75,
                 columnNumber: 7
@@ -27654,8 +27651,8 @@ const LoginView = ({ onLoggedIn })=>{
         // this prevents the default behavior of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            Username: username,
-            Password: password
+            username: username,
+            password: password
         };
         fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/login", {
             method: "POST",
@@ -27758,7 +27755,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("SIGNUP_URL", {
+        fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
