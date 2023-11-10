@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const LoginView = ({ user, onLoggedIn }) => {
+export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,9 +21,11 @@ export const LoginView = ({ user, onLoggedIn }) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    }).then((response) => response.json())
+    })
+    .then((response) => response.json())
     .then((data) => {
       console.log("Login response: ", data);
+
       if (data.user) {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
@@ -35,6 +37,7 @@ export const LoginView = ({ user, onLoggedIn }) => {
     .catch((e) => {
       alert("Something went wrong");
     });
+
 }
 
   return (
