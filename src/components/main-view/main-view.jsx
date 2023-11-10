@@ -31,13 +31,15 @@ export const MainView = () => {
           description: movie.Description,
 
           genre: {
-            Name: movie.Genre.Name
+            name: movie.Genre.Name,
+            description: movie.Genre.Description
           },
-          director: {
-            Name: movie.Director.Name
+          Director: {
+            name: movie.Director.Name,
+            bio: movie.Director.Bio
           },
 
-          featured: movie.featured
+          featured: movie.Featured
         };
       });
       setMovies(moviesFromApi);
