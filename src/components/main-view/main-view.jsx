@@ -26,15 +26,15 @@ export const MainView = () => {
       const moviesFromApi = data.map((movie) => {
         return {
           id: movie._id,
-          title: movie.title,
-          image: movie.imagePath,
-          description: movie.description,
+          title: movie.Title,
+          image: movie.ImagePath,
+          description: movie.Description,
 
           genre: {
-            Name: movie.genre.Name
+            Name: movie.Genre.Name
           },
           director: {
-            Name: movie.director.Name
+            Name: movie.Director.Name
           },
 
           featured: movie.featured
@@ -74,8 +74,8 @@ export const MainView = () => {
     <div>
       <button
         onClick={() => {
-          setUser=(null);
-          setToken=(null);
+          setUser(null);
+          setToken(null);
           localStorage.clear();
         }}>
         Logout

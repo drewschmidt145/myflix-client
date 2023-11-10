@@ -27196,14 +27196,14 @@ const MainView = ()=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
                     id: movie._id,
-                    title: movie.title,
-                    image: movie.imagePath,
-                    description: movie.description,
+                    title: movie.Title,
+                    image: movie.ImagePath,
+                    description: movie.Description,
                     genre: {
-                        Name: movie.genre.Name
+                        Name: movie.Genre.Name
                     },
                     director: {
-                        Name: movie.director.Name
+                        Name: movie.Director.Name
                     },
                     featured: movie.featured
                 };
@@ -27253,8 +27253,8 @@ const MainView = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
-                    setUser = null;
-                    setToken = null;
+                    setUser(null);
+                    setToken(null);
                     localStorage.clear();
                 },
                 children: "Logout"
@@ -27652,8 +27652,8 @@ const LoginView = ({ user, onLoggedIn })=>{
         // this prevents the default behavior of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            username: username,
-            password: password
+            Username: username,
+            Password: password
         };
         fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/login", {
             method: "POST",
@@ -27760,10 +27760,10 @@ const SignupView = ()=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            username: username,
-            password: password,
-            email: email,
-            birthday: birthday
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
         };
         fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/users", {
             method: "POST",
