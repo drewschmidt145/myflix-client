@@ -34,7 +34,7 @@ export const MainView = () => {
             name: movie.Genre.Name,
             description: movie.Genre.Description
           },
-          Director: {
+          director: {
             name: movie.Director.Name,
             bio: movie.Director.Bio
           },
