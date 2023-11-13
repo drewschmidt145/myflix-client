@@ -51,10 +51,7 @@ export const LoginView = ({ onLoggedIn }) => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-<<<<<<< Updated upstream
-=======
           minLength={3}
->>>>>>> Stashed changes
         />
       </Form.Group>
 

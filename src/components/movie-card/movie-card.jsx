@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
-=======
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 
->>>>>>> Stashed changes
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <Card className="h-100">
