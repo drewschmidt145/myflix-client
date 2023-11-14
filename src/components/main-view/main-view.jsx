@@ -6,9 +6,6 @@ import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
-
-
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -55,7 +52,11 @@ export const MainView = () => {
     <Row className="justify-content-md-center">
       {!user ? (
         <Col md={5}>
-          <LoginView onLoggedIn={(user) => setUser(user)} />
+          <LoginView onLoggedIn={(user) => {
+            setUser(user);
+            setToken(token);
+          }}
+          />
           or
           <SignupView />
         </Col>
@@ -71,6 +72,14 @@ export const MainView = () => {
         <div>The list is empty!</div>
       ) : (
         <>
+          <button onClick={() => {
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+          }}
+          >
+            Logout
+          </button>
           {movies.map((movie) => (
             <Col className="mb-4" key={movie.id} md={3}>
               <MovieCard
