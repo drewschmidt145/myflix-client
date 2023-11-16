@@ -1,3 +1,11 @@
+.open-button {
+  color: #f5f5f5;
+  background-color: #1e90ff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
 .back-button {
   color: #f5f5f5;
   background-color: #1e90ff;
@@ -26558,4 +26566,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=index.5f1df611.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
