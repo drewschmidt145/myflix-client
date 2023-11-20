@@ -8,10 +8,10 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export const ProfileView = ({ user, token, movies, setUser }) => {
 
-  const [name, setName] = useState(user.name)
-  const [password, setPassword] = useState(user.password)
-  const [email, setEmail] = useState(user.email)
-  const [birthday, setBirthday] = useState(user.birthday)
+  const [Username, setName] = useState(user.Username)
+  const [password, setPassword] = useState(user.Password)
+  const [Email, setEmail] = useState(user.Email)
+  const [birthday, setBirthday] = useState(user.Birthday)
 
   const favMov = user.favoriteMovies ? movies.filter((movie) => user.favoriteMovies.includes(movie._id)) : [];
 
@@ -19,13 +19,13 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
       event.preventDefault();
     
       const data = {
-          name: name,
+          username: Username,
           password: password,
-          email: email,
+          email: Email,
           birthday: birthday,
       }
 
-      fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.name}` , {   
+      fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}` , {   
 			method: "PUT",
 			body: JSON.stringify(data),
 			headers: {
@@ -52,7 +52,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
     } 
 
     const handleDelete = () => {
-		fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.name}`, {
+		fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}`, {
 			method: "DELETE",
 			headers: {
 				Authorization: `Bearer ${token}`
@@ -99,7 +99,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
           <Form.Label>Name:</Form.Label>
           <Form.Control
             type="text"
-            value={name}
+            value={Username}
             onChange={(e) => setName(e.target.value)}
             required
           />
@@ -117,7 +117,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
             <Form.Label>Email:</Form.Label>
             <Form.Control
             type="email"
-            value={email}
+            value={Email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />

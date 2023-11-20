@@ -27188,7 +27188,6 @@ var _loginView = require("../login-view/login-view");
 var _signupView = require("../signup-view/signup-view");
 var _navigationBar = require("../navigation-bar/navigation-bar");
 var _profileView = require("../profile-view/profile-view");
-var _profileViewDefault = parcelHelpers.interopDefault(_profileView);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -27239,6 +27238,7 @@ const MainView = ()=>{
                 user: user,
                 onLoggedOut: ()=>{
                     setUser(null);
+                    setToken(null);
                     localStorage.clear();
                 }
             }, void 0, false, {
@@ -27262,7 +27262,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 65,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27273,13 +27273,16 @@ const MainView = ()=>{
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 5,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-                                        onLoggedIn: (user)=>setUser(user)
+                                        onLoggedIn: (user, token)=>{
+                                            setUser(user);
+                                            setToken(token);
+                                        }
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 79,
+                            lineNumber: 80,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27299,7 +27302,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 93,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27322,7 +27325,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 109,
+                            lineNumber: 115,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27332,12 +27335,12 @@ const MainView = ()=>{
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 129,
+                            lineNumber: 135,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/profile",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileViewDefault.default), {
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
                                 user: user,
                                 token: token,
                                 movies: movies,
@@ -27345,18 +27348,18 @@ const MainView = ()=>{
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 133,
+                            lineNumber: 139,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 64,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, undefined)
         ]
@@ -48525,20 +48528,20 @@ var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 const ProfileView = ({ user, token, movies, setUser })=>{
     _s();
-    const [name, setName] = (0, _react.useState)(user.name);
-    const [password, setPassword] = (0, _react.useState)(user.password);
-    const [email, setEmail] = (0, _react.useState)(user.email);
-    const [birthday, setBirthday] = (0, _react.useState)(user.birthday);
+    const [Username, setName] = (0, _react.useState)(user.Username);
+    const [password, setPassword] = (0, _react.useState)(user.Password);
+    const [Email, setEmail] = (0, _react.useState)(user.Email);
+    const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
     const favMov = user.favoriteMovies ? movies.filter((movie)=>user.favoriteMovies.includes(movie._id)) : [];
     const handleUpdate = (event)=>{
         event.preventDefault();
         const data = {
-            name: name,
+            username: Username,
             password: password,
-            email: email,
+            email: Email,
             birthday: birthday
         };
-        fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.name}`, {
+        fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -48563,7 +48566,7 @@ const ProfileView = ({ user, token, movies, setUser })=>{
         });
     };
     const handleDelete = ()=>{
-        fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.name}`, {
+        fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -48643,7 +48646,7 @@ const ProfileView = ({ user, token, movies, setUser })=>{
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                             type: "text",
-                                            value: name,
+                                            value: Username,
                                             onChange: (e)=>setName(e.target.value),
                                             required: true
                                         }, void 0, false, {
@@ -48697,7 +48700,7 @@ const ProfileView = ({ user, token, movies, setUser })=>{
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                             type: "email",
-                                            value: email,
+                                            value: Email,
                                             onChange: (e)=>setEmail(e.target.value),
                                             required: true
                                         }, void 0, false, {
@@ -48780,7 +48783,7 @@ const ProfileView = ({ user, token, movies, setUser })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(ProfileView, "6D1pHNgfYtazAc7gEH8cLBs+hgQ=");
+_s(ProfileView, "c97FJZvHazzrKHSPOp5eByBNHk8=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
