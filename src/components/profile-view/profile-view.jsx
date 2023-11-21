@@ -1,10 +1,6 @@
 import  {useState}  from "react";
 import { MovieCard } from "../movie-card/movie-card"
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-
-import  {useState}  from "react";
-import { MovieCard } from "../movie-card/movie-card"
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 export const ProfileView = ({ user, token, movies, setUser }) => {
 
@@ -13,19 +9,23 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
   const [Email, setEmail] = useState(user.Email)
   const [birthday, setBirthday] = useState(user.Birthday)
 
-  const favMov = user.favoriteMovies ? movies.filter((movie) => user.favoriteMovies.includes(movie._id)) : [];
+
+  const favoriteMovies = user.favoriteMovies 
+    ? movies.filter((movie) => user.favoriteMovies.includes(movie.id)) 
+    : [];
 
   const handleUpdate = (event) => {
-      event.preventDefault();
+    event.preventDefault();
     
-      const data = {
+    const data = {
           username: Username,
           password: password,
           email: Email,
           birthday: birthday,
-      }
+    }
+    
 
-      fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}` , {   
+    fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}` , {   
 			method: "PUT",
 			body: JSON.stringify(data),
 			headers: {
@@ -42,16 +42,15 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
         console.log(e)
 				alert("Update failed.")
 			}
-		}).then((updatedUser) =>{
+		}).then((updatedUser) => {
       if(updatedUser) {
         localStorage.setItem('user', JSON.stringify(updatedUser))
         setUser(updatedUser)
       }  
     })
+  } 
 
-    } 
-
-    const handleDelete = () => {
+  const handleDelete = () => {
 		fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/users/${user.Username}`, {
 			method: "DELETE",
 			headers: {
@@ -71,29 +70,10 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
 
 
     <Container>
-      <Row className="justify-content-md-center mx-3 my-4">
-        <h2 className="profile-title">Favorite movies</h2>
-        {favMov.map((movie) => {
-          return (
-            
-            <Col
-              key={movie._id}
-            className="m-3"
-            >
-              <MovieCard
-                movie={movie}
-                token={token}
-                setUser={setUser}
-                user={user}
-              />
-            </Col>
-          );
-        })}
-      </Row>
       <Row className="justify-content-center">
         
           <Col md={6} >
-          <h2 className="profile-title">Update info</h2>
+          <h2 className="profile-title">User info</h2>
           <Form className="my-profile" onSubmit={handleUpdate}>
           <Form.Group className="mb-2" controlId="formName">
           <Form.Label>Name:</Form.Label>
@@ -138,6 +118,25 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
     
           </Col>
 
+      </Row>
+      <Row className="justify-content-md-center mx-3 my-4">
+        <h2 className="profile-title">Favorite movies</h2>
+        {favoriteMovies.map((movie) => {
+          return (
+            
+            <Col
+              key={movie.id}
+            className="m-3"
+            >
+              <MovieCard
+                movie={movie}
+                token={token}
+                setUser={setUser}
+                user={user}
+              />
+            </Col>
+          );
+        })}
       </Row>
 
 

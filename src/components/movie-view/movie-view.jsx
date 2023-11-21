@@ -32,6 +32,7 @@ export const MovieView = ({ movies }) => {
         <span>Genre: </span>
         <span>{movie.genre.name}</span>
       </div>
+      
       <Link to={`/`}>
         <button className="back-button">Back</button>
       </Link>
