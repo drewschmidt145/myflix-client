@@ -1,16 +1,19 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export const MovieCard = ({ movie, token, setUser, user }) => {
+export const MovieCard = ({ movie, setUser, user }) => {
   const [isFavorite, setIsFavorite] = useState(
     false
   );
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
 
-    if (user.favoriteMovies && user.favoriteMovies.includes(movie.id)) {
+    if (user.FavoriteMovies && user.FavoriteMovies.includes(movie.id)) {
       setIsFavorite(true);
     }  
 
@@ -31,7 +34,7 @@ export const MovieCard = ({ movie, token, setUser, user }) => {
       })
       .then((user) => {
         if (user) {
-          alert("successfully added to favorites");
+          alert("Successfully added to favorites");
           localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
           setIsFavorite(true);
@@ -56,7 +59,7 @@ export const MovieCard = ({ movie, token, setUser, user }) => {
       })
       .then((user) => {
         if (user) {
-          alert("successfully deleted from favorites");
+          alert("Successfully deleted from favorites");
           localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
           setIsFavorite(false);
