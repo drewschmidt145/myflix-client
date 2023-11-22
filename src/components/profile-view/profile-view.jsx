@@ -1,27 +1,27 @@
-import  {useState}  from "react";
+import  React, {useState}  from "react";
 import { MovieCard } from "../movie-card/movie-card"
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 export const ProfileView = ({ user, token, movies, setUser }) => {
 
   const [Username, setName] = useState(user.Username)
-  const [password, setPassword] = useState(user.Password)
+  const [password, setPassword] = useState(null)
   const [Email, setEmail] = useState(user.Email)
   const [birthday, setBirthday] = useState(user.Birthday)
 
 
-  const favoriteMovies = user.favoriteMovies 
-    ? movies.filter((movie) => user.favoriteMovies.includes(movie.id)) 
+  const favoriteMovies = user.FavoriteMovies 
+    ? movies.filter((movie) => user.FavoriteMovies.includes(movie.id)) 
     : [];
 
   const handleUpdate = (event) => {
     event.preventDefault();
     
     const data = {
-          username: Username,
-          password: password,
-          email: Email,
-          birthday: birthday,
+          Username: Username,
+          Password: password,
+          Email: Email,
+          Birthday: birthday,
     }
     
 
@@ -83,7 +83,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          </Form.Group >
+          </Form.Group>
           <Form.Group className="mb-2" controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control
@@ -112,7 +112,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
           </Form.Group>
         
           <Button className="update" type="submit" onClick={handleUpdate}>Update</Button>
-          <Button className="delete"onClick={handleDelete}>Delete Account</Button>
+          <Button className="delete" onClick={handleDelete}>Delete Account</Button>
 
           </Form>
     
