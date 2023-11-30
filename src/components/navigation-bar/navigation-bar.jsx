@@ -26,11 +26,39 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link as={Link} to="/profile">
                   Profile
                 </Nav.Link>
-              </>
-            )}
-            {user && (
-              <>
-                <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
+                <Nav.Link onClick={onLoggedOut}>
+                  Logout
+                </Nav.Link>
+                
+                <Nav.Dropdown
+                  title="Genres"
+                  id="basic-nav-dropdown"
+                >
+                  <NavDropdown.Item
+                    as={Link}
+                    to={`movies/Genres/Crime`}
+                  >
+                    Crime
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={`movies/Genres/Action`}
+                  >
+                    Action
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={`movies/Genres/Adventure`}
+                  >
+                    Adventure
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={`movies/Genres/Thriller`}
+                  >
+                    Thriller
+                  </NavDropdown.Item>
+                </Nav.Dropdown>
               </>
             )}
           </Nav>
