@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
@@ -30,7 +30,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                   Logout
                 </Nav.Link>
                 
-                <Nav.Dropdown
+                <NavDropdown
                   title="Genres"
                   id="basic-nav-dropdown"
                 >
@@ -58,7 +58,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                   >
                     Thriller
                   </NavDropdown.Item>
-                </Nav.Dropdown>
+                </NavDropdown>
               </>
             )}
           </Nav>
