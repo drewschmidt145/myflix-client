@@ -7,6 +7,7 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Button, Card, ListGroup } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
@@ -15,10 +16,10 @@ export const MainView = () => {
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
+  const [actionTrigger, setActionTrigger] = useState(false);
 
-  useEffect(() => {
-    if (!token) return;
 
+  const getAllMovies = () => {
     fetch("https://myflix-movieapplication-16850a5656e8.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -46,6 +47,43 @@ export const MainView = () => {
       });
       setMovies(moviesFromApi);
     });
+  };
+
+  const getMoviesByGenre = (genre) => {
+    fetch(`https://myflix-movieapplication-16850a5656e8.herokuapp.com/movies/genres/${genre}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("DATA", data)
+      const moviesFromApi = data.map((movie) => {
+        return {
+          id: movie._id,
+          title: movie.Title,
+          image: movie.ImagePath,
+          description: movie.Description,
+
+          genre: {
+            name: movie.Genre.Name,
+            description: movie.Genre.Description
+          },
+          director: {
+            name: movie.Director.Name,
+            bio: movie.Director.Bio
+          },
+
+          featured: movie.Featured
+        };
+      });
+      setMovies(moviesFromApi);
+    });
+  };
+
+  useEffect(() => {
+    if (!token) return;
+
+    getAllMovies();
+
   }, [token]);
 
   console.log("MOVIES", movies)
@@ -59,6 +97,22 @@ export const MainView = () => {
           setUser(null);
           setToken(null);
           localStorage.clear();
+        }}
+
+        triggerGetActionMovies = {() => {
+          getMoviesByGenre("Action");
+        }}
+        triggerGetTrillerMovies = {() => {
+          getMoviesByGenre("Thriller");
+        }}
+        triggerGetCrimeMovies = {() => {
+          getMoviesByGenre("Crime");
+        }}
+        triggerGetAdventureMovies = {() => {
+          getMoviesByGenre("Adventure");
+        }}
+        triggerGetAllMovies = {() => {
+          getAllMovies();
         }}
       />
       <Row className="justify-content-md-center">

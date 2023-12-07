@@ -1,11 +1,17 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { MainView } from "../main-view/main-view";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, triggerGetAllMovies, triggerGetActionMovies, triggerGetAdventureMovies, triggerGetTrillerMovies, triggerGetCrimeMovies }) => {
+
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand 
+          as={Link} to="/"
+          onClick={triggerGetAllMovies}
+        >
           MyFlix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -35,26 +41,22 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                   id="basic-nav-dropdown"
                 >
                   <NavDropdown.Item
-                    as={Link}
-                    to={`movies/Genres/Crime`}
+                    onClick={triggerGetCrimeMovies}
                   >
                     Crime
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    as={Link}
-                    to={`movies/Genres/Action`}
+                    onClick={triggerGetActionMovies}
                   >
                     Action
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    as={Link}
-                    to={`movies/Genres/Adventure`}
+                    onClick={triggerGetAdventureMovies}
                   >
                     Adventure
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    as={Link}
-                    to={`movies/Genres/Thriller`}
+                    onClick={triggerGetTrillerMovies}
                   >
                     Thriller
                   </NavDropdown.Item>
