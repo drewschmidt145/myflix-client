@@ -1,6 +1,6 @@
 import React, {useState}  from "react";
 import { MovieCard } from "../movie-card/movie-card"
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, ButtonGroup, Card } from "react-bootstrap";
 
 
 export const ProfileView = ({ user, token, movies, setUser }) => {
@@ -112,22 +112,31 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
             required/>
           </Form.Group>
         
+      <div className="d-flex justify-content-end">
+
+        <ButtonGroup className="mt-2 justify-content-end">
           <Button className="update" type="submit" onClick={handleUpdate}>Update</Button>
-          <Button className="delete" onClick={handleDelete}>Delete Account</Button>
+          <Button variant="danger" className="delete" onClick={handleDelete}>Delete Account</Button>
+        </ButtonGroup>
+      </div>
+       
+
+
 
           </Form>
     
           </Col>
 
       </Row>
-      <Row className="justify-content-md-center mx-3 my-4">
+      <Row className="justify-content-start mx-3 my-4">
         <h2 className="profile-title">Favorite movies</h2>
         {userfavoriteMovies.map((movie) => {
           return (
             
             <Col
               key={movie.id}
-            className="m-3"
+              
+              xs={3}
             >
               <MovieCard
                 movie={movie}
