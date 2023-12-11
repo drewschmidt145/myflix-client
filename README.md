@@ -6,7 +6,11 @@ MyFlix is a client side app used to view a list of movies. Users will be able to
 
 The front end is built using React and accesses the MyFlix API.
 
-##### Design
+#### Live Website
+
+  - Here is a link to the live website: [https://myflix-2891.netlify.app/](https://myflix-2891.netlify.app/)
+
+#### Design
 
   - This application uses a single view to access all pages and views. It has many different functionalities and components. These include the following.
 
