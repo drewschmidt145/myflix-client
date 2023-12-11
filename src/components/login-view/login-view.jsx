@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -32,6 +33,7 @@ export const LoginView = ({ onLoggedIn }) => {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
         onLoggedIn(data.user, data.token);
+        <Alert severity="success">This is a success alert — check it out!</Alert>
       } else {
         alert("No such user");
       }

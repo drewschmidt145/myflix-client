@@ -29,7 +29,10 @@ export const SignupView = () => {
       }
     }).then((response) => {
       if (response.ok) {
-        alert("Signup successful");
+        // alert("Signup successful");
+        <div class="alert alert-primary" role="alert">
+          Signup Successful!
+        </div>
         navigate("/login")
       } else {
         alert("Signup failed");

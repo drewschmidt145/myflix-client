@@ -76,17 +76,18 @@ export const MovieCard = ({ movie, setUser, user }) => {
 
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
-        <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-          <Button className="close-open-btn">Open</Button>
-        </Link>
-       
-       <Card.Body className="favorite-btns">
-        {!isFavorite ? (
-          <Button className="fav-btn" onClick={addFavoriteMovie}>+</Button>
-        ) : (
-          <Button className="fav-btn" onClick={removeFavoriteMovie}>-</Button>
-        )}
-      </Card.Body>
+        <div className="d-flex justify-content-between align-items-center">
+          <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+            <Button className="close-open-btn" variant="secondary">Open</Button>
+          </Link>
+          <Card.Body className="favorite-btns">
+            {!isFavorite ? (
+              <Button className="fav-btn" variant="outline-danger" onClick={addFavoriteMovie}>Add</Button>
+            ) : (
+              <Button className="fav-btn" variant="danger" onClick={removeFavoriteMovie}>Remove</Button>
+            )}
+          </Card.Body>
+        </div>
       </Card.Body>
 
 

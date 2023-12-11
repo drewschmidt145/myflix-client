@@ -115,7 +115,10 @@ export const MainView = () => {
           getAllMovies();
         }}
       />
-      <Row className="justify-content-md-center">
+      <Row 
+        lassName="justify-content-md-center"
+        style={{ padding: '60px' }}
+      >
         <Routes>
           <Route
             path="/signup"

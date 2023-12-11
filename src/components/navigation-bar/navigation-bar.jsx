@@ -4,9 +4,8 @@ import { MainView } from "../main-view/main-view";
 
 export const NavigationBar = ({ user, onLoggedOut, triggerGetAllMovies, triggerGetActionMovies, triggerGetAdventureMovies, triggerGetTrillerMovies, triggerGetCrimeMovies }) => {
 
-
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="danger" expand="lg" fixed="top">
       <Container>
         <Navbar.Brand 
           as={Link} to="/"
@@ -15,55 +14,56 @@ export const NavigationBar = ({ user, onLoggedOut, triggerGetAllMovies, triggerG
           MyFlix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {!user && (
-              <>
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
-                <Nav.Link as={Link} to="/signup">
-                  Signup
-                </Nav.Link>
-              </>
-            )}
-            {user && (
-              <>
-                <Nav.Link as={Link} to="/profile">
-                  Account
-                </Nav.Link>
-                <Nav.Link onClick={onLoggedOut}>
-                  Logout
-                </Nav.Link>
-                
-                <NavDropdown
-                  title="Genres"
-                  id="basic-nav-dropdown"
-                >
-                  <NavDropdown.Item
-                    onClick={triggerGetCrimeMovies}
+        <Navbar.Collapse id="basic-navbar-nav" className="">
+
+            <Nav className="me-auto" >
+              {!user && (
+                <>
+                  <Nav.Link as={Link} to="/login">
+                    Login
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/signup">
+                    Signup
+                  </Nav.Link>
+                </>
+              )}
+              {user && (
+                <>
+                  <Nav.Link as={Link} to="/profile">
+                    Account
+                  </Nav.Link>
+                  <Nav.Link onClick={onLoggedOut}>
+                    Logout
+                  </Nav.Link>
+                  
+                  <NavDropdown
+                    title="Genres"
+                    id="basic-nav-dropdown"
                   >
-                    Crime
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={triggerGetActionMovies}
-                  >
-                    Action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={triggerGetAdventureMovies}
-                  >
-                    Adventure
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onClick={triggerGetTrillerMovies}
-                  >
-                    Thriller
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </>
-            )}
-          </Nav>
+                    <NavDropdown.Item
+                      onClick={triggerGetCrimeMovies}
+                    >
+                      Crime
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={triggerGetActionMovies}
+                    >
+                      Action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={triggerGetAdventureMovies}
+                    >
+                      Adventure
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={triggerGetTrillerMovies}
+                    >
+                      Thriller
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              )}
+            </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,7 +1,49 @@
 .back-button {
   padding: 4px 12px 4px 12px;
   color: whitesmoke;
-  background-color: dodgerblue;
   border: none;
   border-radius: 4px;
+}
+
+.movie-container {
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  max-width: 60%; /* Adjust the max-width based on your preference */
+  margin-top: 50px;
+  margin-right: 5px;
+}
+
+.movie-image {
+  max-width: 200px;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.movie-details {
+  flex-grow: 1;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.movie-description {
+  margin-bottom: 15px;
+}
+
+.movie-info {
+  margin-bottom: 8px;
+}
+
+.primary-text {
+  color: #DC3545;
 }
