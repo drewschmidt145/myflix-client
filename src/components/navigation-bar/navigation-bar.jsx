@@ -5,7 +5,7 @@ import { MainView } from "../main-view/main-view";
 export const NavigationBar = ({ user, onLoggedOut, triggerGetAllMovies, triggerGetActionMovies, triggerGetAdventureMovies, triggerGetTrillerMovies, triggerGetCrimeMovies }) => {
 
   return (
-    <Navbar bg="danger" expand="lg" fixed="top">
+    <Navbar bg="white" expand="lg" fixed="top">
       <Container>
         <Navbar.Brand 
           as={Link} to="/"

@@ -13250,6 +13250,11 @@ textarea.form-control-lg {
   }
 }
 
+body {
+  background-image: linear-gradient(to right, #fff0, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #e2334799, #fff0);
+  overflow-x: hidden;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
